@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">HistoricalFiguresQuiz</string>
+    <string name="Button">Play</string>
+    <string name="Categories">Categories</string>
+    <string name="Politicians">Political Figures</string>
+    <string name="Science">Scientists</string>
+    <string name="Art">Artists</string>
+    <string name="Settings">Settings</string>
+    <string name="about">About</string>
+    <string name="title_activity_politicians">PoliticiansActivity</string>
+    <string name="HFQ">HFQ</string>
+    <string name="score">Score</string>
+    <string name="vladimir_lenin">Vladimir Lenin</string>
+    <string name="joseph_stalin">Joseph Stalin</string>
+    <string name="napoleon_bonaparte">Napoleon Bonaparte</string>
+    <string name="vladimir_putin">Vladimir Putin</string>
+</resources>
