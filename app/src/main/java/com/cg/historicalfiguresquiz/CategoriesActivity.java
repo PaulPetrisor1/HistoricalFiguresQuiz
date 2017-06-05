@@ -22,6 +22,19 @@ public class CategoriesActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void buttonClick(View v){
+
+         Intent intent1 = new Intent(getApplicationContext(), ScientistsActivity.class);
+         startActivity(intent1);
+    }
+
+    public void buttonClick2(View v){
+
+        Intent intent = new Intent(getApplicationContext(), ArtistsActivity.class);
+        startActivity(intent);
+    }
+
+
     public boolean onCreateOptionsMenu(Menu menu) {
         //this adds items to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_main, menu);

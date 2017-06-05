@@ -11,6 +11,7 @@
 
     <Button
         android:id="@+id/button2"
+        android:onClick="buttonClick"
         android:layout_width="395dp"
         android:layout_height="82dp"
         android:layout_centerHorizontal="true"
@@ -39,7 +40,7 @@
         android:layout_below="@id/button2"
         android:layout_marginLeft="1dp"
         android:layout_marginRight="1dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="58dp"
         android:alpha="0.85"
         android:background="@drawable/politicians_button"
         android:fontFamily="casual"
@@ -62,6 +63,7 @@
         android:alpha="0.85"
         android:background="@drawable/artists_button"
         android:fontFamily="casual"
+        android:onClick="buttonClick2"
         android:text="@string/Art"
         android:textColor="@android:color/black"
         android:textSize="21sp"
