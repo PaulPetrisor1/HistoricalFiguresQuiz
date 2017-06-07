@@ -56,6 +56,19 @@ public class QuestionList {
             "Francois Hollande", "Saddam Hussein", "John Kennedy", "Ogedai Khan", "Kim Jong-Il", "Louis XIII", "Louis XIV", "Nelson Mandela", "Marcus Aurelius", "Angela Merkel", "Joseph Bonaparte", "Richard Nixon",
             "Barack Obama", "Pericles", "Peter The Great", "Elizabeth II", "Franklin Roosevelt", "Joseph Stalin", "Margaret Thatcher"};
 
+
+
+
+    public int nScientistsQuestions[] = new int[]  {R.drawable.alan_turing, R.drawable.albert_einstein, R.drawable.alfrednobel , R.drawable.anton_van_leeuwenhoek, R.drawable.arhimed, R.drawable.aristotle, R.drawable.carver,
+            R.drawable.copernicus, R.drawable.dalton, R.drawable.darwin, R.drawable.davinci, R.drawable.dirak, R.drawable.edison, R.drawable.faraday, R.drawable.fermi, R.drawable.galileo, R.drawable.gordsonmoore,
+            R.drawable.guth_alan, R.drawable.james_clerk_maxwell, R.drawable.kepler, R.drawable.knuth, R.drawable.louispasteur, R.drawable.mendel, R.drawable.mendeleev, R.drawable.newton,
+            R.drawable.noamchomsky, R.drawable.richarddawkins, R.drawable.robertboyle, R.drawable.stephen_hawking, R.drawable.tesla, R.drawable.tim_berners_lee };
+
+
+    public String nScientistsAnswers[] = {"Alan Turing","Albert Einstein","Alfred Nobel","Anton Van Leeuwenhoek","Archimedes","Aristotle","George Washington Carver",
+            "Nicolaus Copernicus","John Dalton","Charles Darwin","Leonardo da Vinci","Paul Dirak","Thomas Edison","Michael Faraday","Enrico Fermi","Galileo Galilei","Gordon Moore",
+             "Alan Guth","James Clerk Maxwell","Johannes Kepler","Donald Knuth","Louis Pasteur","Gregor Mendel","Dmitri Mendeleev","Isaac Newton","Noam Chomsky","Richard Dawkins",
+             "Robert Boyle","Stephen Hawking","Nikola Tesla","Tim Berners-Lee"};
+
+
 }
-
-
