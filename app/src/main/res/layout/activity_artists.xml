@@ -47,7 +47,7 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/lenin_question"
+        android:id="@+id/artistsQuestion"
         android:layout_width="204dp"
         android:layout_height="103dp"
         android:layout_marginBottom="20dp"
