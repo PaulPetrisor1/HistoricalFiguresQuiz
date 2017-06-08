@@ -14,42 +14,6 @@ public class QuestionList {
             R.drawable.bonaparte, R.drawable.nixon, R.drawable.obama, R.drawable.pericles, R.drawable.peterthegreat, R.drawable.queenelizabeth, R.drawable.roosevelt, R.drawable.stalin,
             R.drawable.thatcher};
 
-    public String nChoiches[][] = {
-
-            {"Joseph Stalin","Vladimir Putin","Vladimir Lenin","Georgy Malenkov"},
-            {"Wilhelm II", "Frederic I", "Otto Von Bismark", "Herman Goring"},
-            {"Julius Caesar", "Marcus Aurelius", "Caligula", "Marcus Traianus"},
-            {"Abel Santamaria", "Raul Castro", "Fidel Castro", "Cheguevara"},
-            {"Harry Truman", "Franklin Roosevelt", "Winston Churchill", "Hermann Goering"},
-            {"Sun Yat-sen", "Dalailama", "Mao Zedong", "Deng Xiaoping"},
-            {"Queen Elizabeth", "Queen Mary", "Queen Elizabeth II", "Queen Mary II"},
-            {"Carlos Hevia", "Carlos Davila", "Raul Castro", "Fidel Castro"},
-            {"Franz Ferdinand", "Frederic I", "Franz Joseph I", "Friedrich von Beust"},
-            {"Wilhelm II", "Martin Luther King", "Mahatma Gandhi", "Desmond Tutu"},
-            {"Dmitry Medvedev", "Leonid Brezhnev", "Georgy Malenkov", "Mihail Gorbaciov"},
-            {"Louis XIII", "Louis XIV", "Henry VIII", "Ludovic XIV"},
-            {"Emperor Hirohito", "Emperor Kenzo", "Emperor Akihito", "Emperor Yoshihito"},
-            {"Nicolas Sarkozy", "Francois Hollande", "Jacques Chirac", "Francois Mitterand"},
-            {"Uday Hussein", "Muammar Al-Gaddafi", "Saddam Hussein", "Osama Bin Laden"},
-            {"Lee Harvey Oswald", "John Kennedy", "Ronald Reagan", "Richard Nixon"},
-            {"Tolui Khan", "Genghis Khan", "Ogedai Khan", "Godan Khan"},
-            {"Kim Il-Sung", "Kim Jong-Il", "Kim Jong-Un", "Kim Ju-Ae"},
-            {"Edward V", "Edward I", "Louis XIV", "Louis XIII"},
-            {"Louis XIV", "James II", "Harold Godwinson", "Herman Goring"},
-            {"Nelson Mandela", "Martin Luthor King", "Winnie Mandela", "Jacob Zuma"},
-            {"Nero", "Marcus Aurelius", "Marcus Antonius", "Augustus"},
-            {"Margaret Thatcher", "Julia Gillard", "Hillary Clinton", "Angela Merkel"},
-            {"Napoleon III", "Napoleon Bonaparte", "Joseph Bonaparte", "Napoleon II"},
-            {"George W.Bush", "Jimmy Carter", "Richard Nixon", "Bill Clinton"},
-            {"Barack Obama", "George H.W.Bush", "Gerald Ford", "Herbert Hoover"},
-            {"Pericles", "Socrate", "Solon", "Plato"},
-            {"Nicholas II", "Alexander II", "Peter The Great", "Ivan The Terrible"},
-            {"Catherine The Great", "Elizabeth II", "Elizabeth Of Russia", "Queen Victoria"},
-            {"Theodore Roosevelt", "Dwight Eisenhower", "Warren Harding", "Franklin Roosevelt"},
-            {"Adolf Hitler", "Joseph Stalin", "Benito Mussolini", "Leon Trotsky"},
-            {"Princess Diana", "Carol Thatcher", "Theresa May", "Margaret Thatcher"},
-
-    };
 
 
     public String nAnswers[] = {"Vladimir Lenin", "Otto Von Bismark", "Julius Caesar", "Cheguevara", "Winston Churchill", "Dalailama", "Queen Elizabeth", "Fidel Castro", "Franz Ferdinand", "Mahatma Gandhi", "Mihail Gorbaciov", "Henry VIII", "Emperor Hirohito",
@@ -71,4 +35,16 @@ public class QuestionList {
              "Robert Boyle","Stephen Hawking","Nikola Tesla","Tim Berners-Lee"};
 
 
-}
+
+    public  int nArtistsQuestions[] = new int[] {R.drawable.antony_hopkins, R.drawable.carvaggio, R.drawable.charles_dickens, R.drawable.charlie_chaplin, R.drawable.claude_monet, R.drawable.daniel_day_lewis, R.drawable.diego_velazquez,
+
+           R.drawable.edgar_allan_poe, R.drawable.edgar_degas, R.drawable.edouard_manet, R.drawable.ernest_hemingway, R.drawable.fyodor_dostoevsky, R.drawable.george_orwell, R.drawable.j_r_r_tolkien, R.drawable.leo_tolstoy,
+           R.drawable.marcel_duchamp, R.drawable.marcel_proust, R.drawable.mark_twain, R.drawable.marlon_brando, R.drawable.michelangelo_buonarroti, R.drawable.oscar_wilde, R.drawable.pablo_picasso, R.drawable.paulo_coelho,
+           R.drawable.peter_paul_rubens, R.drawable.raphael, R.drawable.rembrandt, R.drawable.renoir_pierre_auguste, R.drawable.salvador_dali, R.drawable.van_gogh, R.drawable.victor_hugo, R.drawable.william_shakespeare};
+
+
+    public String nArtistsAnswers[] = {"Antony Hopkins","Caravaggio","Charles Dickens","Charlie Chaplin","Claude Monet","Daniel Day Lewis","Diego Velazquez","Edgar Allan Poe",
+            "Edgar Degas","Edouard Manet","Ernest Hemingway","Fyodor Dostoevsky","George Orwell","J.R.R Tolkien","Leo Tolstoy","Marcel Duchamp","Marcel Proust","Mark Twain","Marlon Brando",
+             "Michelangelo Buonarroti","Oscar Wilde","Pablo Picasso","Paulo Coelho","Peter Paul Rubens","Raphael","Rembrandt","Renoir Pierre Auguste","Salvador Dali","Vincent Van Gogh","Victor Hugo","William Shaekspeare"};
+
+    }
