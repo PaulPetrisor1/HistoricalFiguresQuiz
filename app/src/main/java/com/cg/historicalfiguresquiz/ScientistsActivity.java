@@ -91,6 +91,7 @@ public class ScientistsActivity extends AppCompatActivity {
                     ScientistsActivity.this.finish();
                     startActivity(i);
 
+
                 }
             }
         });
@@ -119,7 +120,7 @@ public class ScientistsActivity extends AppCompatActivity {
 
                     }
                 } else {
-                    Toasty.error(ScientistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
+                    Toasty.error(ScientistsActivity.this, "False", Toast.LENGTH_LONG,true).show();
                     Intent i = new Intent(ScientistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
                     bundle.putInt("finalScore", nScore);
