@@ -14,6 +14,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import es.dmoral.toasty.Toasty;
+
 public class ScientistsActivity extends AppCompatActivity {
 
 
@@ -68,7 +70,7 @@ public class ScientistsActivity extends AppCompatActivity {
 
                     nScore = nScore + 1;
                     updateScore(nScore);
-                    Toast.makeText(ScientistsActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+                    Toasty.success(ScientistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
 
                     if (turn<list.size()) {
                         turn++;
@@ -80,6 +82,7 @@ public class ScientistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    Toasty.error(ScientistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ScientistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
                     bundle.putInt("finalScore", nScore);
@@ -103,7 +106,8 @@ public class ScientistsActivity extends AppCompatActivity {
 
                     nScore = nScore + 1;
                     updateScore(nScore);
-                    Toast.makeText(ScientistsActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+                    Toasty.success(ScientistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
+
 
                     if (turn<list.size()) {
                         turn++;
@@ -115,6 +119,7 @@ public class ScientistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    Toasty.error(ScientistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ScientistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
                     bundle.putInt("finalScore", nScore);
@@ -136,7 +141,7 @@ public class ScientistsActivity extends AppCompatActivity {
 
                     nScore = nScore + 1;
                     updateScore(nScore);
-                    Toast.makeText(ScientistsActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+                    Toasty.success(ScientistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
 
                     if (turn<list.size()) {
                         turn++;
@@ -148,6 +153,7 @@ public class ScientistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    Toasty.error(ScientistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ScientistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
                     bundle.putInt("finalScore", nScore);
@@ -169,7 +175,8 @@ public class ScientistsActivity extends AppCompatActivity {
 
                     nScore = nScore + 1;
                     updateScore(nScore);
-                    Toast.makeText(ScientistsActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+                    Toasty.success(ScientistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
+
 
                     if (turn<list.size()) {
                         turn++;
@@ -181,6 +188,7 @@ public class ScientistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    Toasty.error(ScientistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ScientistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
                     bundle.putInt("finalScore", nScore);

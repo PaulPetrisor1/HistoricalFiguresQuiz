@@ -1,6 +1,7 @@
 package com.cg.historicalfiguresquiz;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
+import es.dmoral.toasty.Toasty;
 
 public class ArtistsActivity extends AppCompatActivity {
 
@@ -69,8 +72,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     nScore = nScore + 1;
                     updateScore(nScore);
-                    Toast.makeText(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT).show();
-
+                    Toasty.success(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
                     if (turn<list.size()) {
                         turn++;
                         newQuestion(turn);
@@ -81,6 +83,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
                     bundle.putInt("finalScore", nScore);
@@ -105,7 +108,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     nScore = nScore + 1;
                     updateScore(nScore);
-                    Toast.makeText(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+                    Toasty.success(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
 
                     if (turn<list.size()) {
                         turn++;
@@ -117,6 +120,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
                     bundle.putInt("finalScore", nScore);
@@ -138,7 +142,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     nScore = nScore + 1;
                     updateScore(nScore);
-                    Toast.makeText(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+                    Toasty.success(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
 
                     if (turn<list.size()) {
                         turn++;
@@ -150,6 +154,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
                     bundle.putInt("finalScore", nScore);
@@ -171,7 +176,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     nScore = nScore + 1;
                     updateScore(nScore);
-                    Toast.makeText(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+                    Toasty.success(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
 
                     if (turn<list.size()) {
                         turn++;
@@ -183,6 +188,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
                     bundle.putInt("finalScore", nScore);
