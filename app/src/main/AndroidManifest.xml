@@ -8,7 +8,8 @@
         android:label="@string/HFQ"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeScreen">
+        <activity android:name=".HomeScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,16 +18,23 @@
         </activity>
         <activity
             android:name=".CategoriesActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".HomeScreen">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cg.historicalfiguresquiz.HomeScreen" />
         </activity>
-        <activity android:name=".PoliticiansActivity" />
-        <activity android:name=".ResultsActivity" />
-        <activity android:name=".Results2Activity" />
-        <activity android:name=".ScientistsActivity" />
-        <activity android:name=".ArtistsActivity"></activity>
+        <activity android:name=".PoliticiansActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ResultsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Results2Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ScientistsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ArtistsActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

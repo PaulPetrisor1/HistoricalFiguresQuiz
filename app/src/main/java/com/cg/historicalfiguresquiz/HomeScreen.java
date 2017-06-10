@@ -1,6 +1,8 @@
 package com.cg.historicalfiguresquiz;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,12 +19,21 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-    }
+          final MediaPlayer soundEffect1 = MediaPlayer.create(this,R.raw.homescreen_button);
 
-    public void buttonClickFunction(View v){
+          Button homeButton = (Button) findViewById(R.id.button);
 
-        Intent intent = new Intent(getApplicationContext(),CategoriesActivity.class);
-        startActivity(intent);
+          homeButton.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  soundEffect1.start();
+                  Intent intent = new Intent(getApplicationContext(),CategoriesActivity.class);
+                  startActivity(intent);
+
+              }
+          });
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu){

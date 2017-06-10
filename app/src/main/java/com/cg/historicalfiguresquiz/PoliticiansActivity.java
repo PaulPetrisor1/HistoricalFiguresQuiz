@@ -1,6 +1,8 @@
 package com.cg.historicalfiguresquiz;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -51,6 +53,10 @@ public class PoliticiansActivity extends AppCompatActivity {
         nButtonChoice3 = (Button) findViewById(R.id.choice3);
         nButtonChoice4 = (Button) findViewById(R.id.choice4);
 
+        final MediaPlayer correctButtonMP = MediaPlayer.create(this,R.raw.correct_button);
+        final MediaPlayer falseButtonMP = MediaPlayer.create(this,R.raw.false_button);
+
+
         list = new ArrayList<>();
 
         for (int i = 0; i < new QuestionList().nAnswers.length; i++) {
@@ -70,6 +76,7 @@ public class PoliticiansActivity extends AppCompatActivity {
 
                 if (nButtonChoice1.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
 
+                    correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
                     Toasty.success(PoliticiansActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
@@ -84,6 +91,7 @@ public class PoliticiansActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    falseButtonMP.start();
                     Toasty.error(PoliticiansActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(PoliticiansActivity.this, Results2Activity.class);
                         Bundle bundle = new Bundle();
@@ -106,7 +114,7 @@ public class PoliticiansActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (nButtonChoice2.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
-
+                    correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
                     Toasty.success(PoliticiansActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
@@ -122,7 +130,8 @@ public class PoliticiansActivity extends AppCompatActivity {
 
                     }
                 } else {
-                    Toasty.error(PoliticiansActivity.this, "False", Toast.LENGTH_SHORT,true).show();
+
+                    falseButtonMP.start();Toasty.error(PoliticiansActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(PoliticiansActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
                     bundle.putInt("finalScore", nScore);
@@ -141,7 +150,7 @@ public class PoliticiansActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (nButtonChoice3.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
-
+                    correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
                     Toasty.success(PoliticiansActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
@@ -157,6 +166,8 @@ public class PoliticiansActivity extends AppCompatActivity {
 
                     }
                 } else {
+
+                    falseButtonMP.start();
                     Toasty.error(PoliticiansActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(PoliticiansActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
@@ -175,7 +186,7 @@ public class PoliticiansActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (nButtonChoice4.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
-
+                    correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
                     Toasty.success(PoliticiansActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
@@ -192,6 +203,7 @@ public class PoliticiansActivity extends AppCompatActivity {
                     }
                 } else {
 
+                    falseButtonMP.start();
                     Toasty.error(PoliticiansActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(PoliticiansActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();

@@ -1,6 +1,7 @@
 package com.cg.historicalfiguresquiz;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,6 +53,10 @@ public class ArtistsActivity extends AppCompatActivity {
         nButtonChoice3 = (Button) findViewById(R.id.artistschoice3);
         nButtonChoice4 = (Button) findViewById(R.id.artistschoice4);
 
+        final MediaPlayer correctButtonMP = MediaPlayer.create(this,R.raw.correct_button);
+        final MediaPlayer falseButtonMP = MediaPlayer.create(this,R.raw.false_button);
+
+
         list = new ArrayList<>();
 
         for (int i = 0; i < new QuestionList().nArtistsAnswers.length; i++) {
@@ -70,6 +75,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                 if (nButtonChoice1.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
 
+                    correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
                     Toasty.success(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
@@ -83,6 +89,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    falseButtonMP.start();
                     Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
@@ -105,7 +112,7 @@ public class ArtistsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (nButtonChoice2.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
-
+                    correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
                     Toasty.success(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
@@ -120,6 +127,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    falseButtonMP.start();
                     Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
@@ -139,7 +147,7 @@ public class ArtistsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (nButtonChoice3.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
-
+                    correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
                     Toasty.success(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
@@ -154,6 +162,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    falseButtonMP.start();
                     Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
@@ -174,6 +183,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                 if (nButtonChoice4.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
 
+                    correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
                     Toasty.success(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
@@ -188,6 +198,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                     }
                 } else {
+                    falseButtonMP.start();
                     Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();

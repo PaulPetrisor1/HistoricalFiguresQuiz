@@ -10,7 +10,7 @@
     android:paddingTop="16dp"
 
     android:orientation="vertical"
-    tools:context="com.cg.historicalfiguresquiz.PoliticiansActivity"
+    tools:context="com.cg.historicalfiguresquiz.ArtistsActivity"
     android:weightSum="1">
 
 

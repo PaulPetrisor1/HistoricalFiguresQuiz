@@ -22,7 +22,6 @@ public class QuestionList {
 
 
 
-
     public int nScientistsQuestions[] = new int[]  {R.drawable.alan_turing, R.drawable.albert_einstein, R.drawable.alfrednobel , R.drawable.anton_van_leeuwenhoek, R.drawable.arhimed, R.drawable.aristotle, R.drawable.carver,
             R.drawable.copernicus, R.drawable.dalton, R.drawable.darwin, R.drawable.davinci, R.drawable.dirak, R.drawable.edison, R.drawable.faraday, R.drawable.fermi, R.drawable.galileo, R.drawable.gordsonmoore,
             R.drawable.guth_alan, R.drawable.james_clerk_maxwell, R.drawable.kepler, R.drawable.knuth, R.drawable.louispasteur, R.drawable.mendel, R.drawable.mendeleev, R.drawable.newton,

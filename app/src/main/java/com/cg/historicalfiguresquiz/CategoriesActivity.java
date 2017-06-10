@@ -1,10 +1,12 @@
 package com.cg.historicalfiguresquiz;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 
 public class CategoriesActivity extends AppCompatActivity {
 
@@ -14,24 +16,53 @@ public class CategoriesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_categories);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+        final MediaPlayer soundEffect2 = MediaPlayer.create(this,R.raw.categories_button);
 
-    public void buttonClickFunction(View v) {
 
-        Intent intent = new Intent(getApplicationContext(), PoliticiansActivity.class);
-        startActivity(intent);
-    }
+        Button button1 = (Button) findViewById(R.id.button2);
+        Button button2 = (Button) findViewById(R.id.button3);
+        Button button3 = (Button) findViewById(R.id.button4);
 
-    public void buttonClick(View v){
 
-         Intent intent1 = new Intent(getApplicationContext(), ScientistsActivity.class);
-         startActivity(intent1);
-    }
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundEffect2.start();
 
-    public void buttonClick2(View v){
+                Intent intent = new Intent(getApplicationContext(), ScientistsActivity.class);
+                startActivity(intent);
+                finish();
 
-        Intent intent = new Intent(getApplicationContext(), ArtistsActivity.class);
-        startActivity(intent);
+            }
+        });
+
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundEffect2.start();
+
+                Intent intent1 = new Intent(getApplicationContext(), PoliticiansActivity.class);
+                startActivity(intent1);
+                finish();
+
+            }
+        });
+
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundEffect2.start();
+
+                Intent intent = new Intent(getApplicationContext(), ArtistsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+
     }
 
 
