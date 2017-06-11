@@ -37,10 +37,24 @@
             android:id="@+id/score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:layout_marginStart="110dp"
             android:text="0"
-            android:textColor="@color/Black"
-            android:textSize="30sp"
+            android:textColor="@color/brown"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="11dp"
+            android:fontFamily="cursive"
+            android:text="13"
+            android:textAllCaps="false"
+            android:textColor="@color/Red"
+            android:textSize="50sp"
             android:textStyle="bold" />
 
 
