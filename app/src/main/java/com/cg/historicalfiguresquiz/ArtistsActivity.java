@@ -2,6 +2,7 @@ package com.cg.historicalfiguresquiz;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.CountDownTimer;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,9 +30,11 @@ public class ArtistsActivity extends AppCompatActivity {
     private Button nButtonChoice2;
     private Button nButtonChoice3;
     private Button nButtonChoice4;
+    private TextView nTime;
     private int nScore = 0;
     public int nQuestionLenght = nQuestionList.nArtistsQuestions.length;
     Random random;
+    private CountDownTimer countDownTimer;
 
     List<QuestionItem> list;
     int turn = 1;
@@ -52,7 +55,7 @@ public class ArtistsActivity extends AppCompatActivity {
         nButtonChoice2 = (Button) findViewById(R.id.artistschoice2);
         nButtonChoice3 = (Button) findViewById(R.id.artistschoice3);
         nButtonChoice4 = (Button) findViewById(R.id.artistschoice4);
-
+        nTime = (TextView) findViewById(R.id.timer3);
         final MediaPlayer correctButtonMP = MediaPlayer.create(this,R.raw.correct_button);
         final MediaPlayer falseButtonMP = MediaPlayer.create(this,R.raw.false_button);
 
@@ -66,7 +69,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
         Collections.shuffle(list);
         newQuestion(turn);
-
+        start();
 
 
         nButtonChoice1.setOnClickListener(new View.OnClickListener() {
@@ -80,9 +83,11 @@ public class ArtistsActivity extends AppCompatActivity {
                     updateScore(nScore);
                     Toasty.success(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
                     if (turn<list.size()) {
+                        countDownTimer.start();
                         turn++;
                         newQuestion(turn);
                     } else if (turn == list.size()){
+                        countDownTimer.cancel();
                         Intent i = new Intent(ArtistsActivity.this, ResultsActivity.class);
                         ArtistsActivity.this.finish();
                         startActivity(i);
@@ -90,6 +95,7 @@ public class ArtistsActivity extends AppCompatActivity {
                     }
                 } else {
                     falseButtonMP.start();
+                    countDownTimer.cancel();
                     Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
@@ -118,9 +124,11 @@ public class ArtistsActivity extends AppCompatActivity {
                     Toasty.success(ArtistsActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
 
                     if (turn<list.size()) {
+                        countDownTimer.start();
                         turn++;
                         newQuestion(turn);
                     } else if (turn == list.size()){
+                        countDownTimer.cancel();
                         Intent i = new Intent(ArtistsActivity.this, ResultsActivity.class);
                         ArtistsActivity.this.finish();
                         startActivity(i);
@@ -128,6 +136,7 @@ public class ArtistsActivity extends AppCompatActivity {
                     }
                 } else {
                     falseButtonMP.start();
+                    countDownTimer.cancel();
                     Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
@@ -155,7 +164,9 @@ public class ArtistsActivity extends AppCompatActivity {
                     if (turn<list.size()) {
                         turn++;
                         newQuestion(turn);
+                        countDownTimer.start();
                     } else if (turn == list.size()){
+                        countDownTimer.cancel();
                         Intent i = new Intent(ArtistsActivity.this, ResultsActivity.class);
                         ArtistsActivity.this.finish();
                         startActivity(i);
@@ -163,6 +174,7 @@ public class ArtistsActivity extends AppCompatActivity {
                     }
                 } else {
                     falseButtonMP.start();
+                    countDownTimer.cancel();
                     Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
@@ -191,7 +203,9 @@ public class ArtistsActivity extends AppCompatActivity {
                     if (turn<list.size()) {
                         turn++;
                         newQuestion(turn);
+                        countDownTimer.start();
                     } else if (turn == list.size()){
+                        countDownTimer.cancel();
                         Intent i = new Intent(ArtistsActivity.this, ResultsActivity.class);
                         ArtistsActivity.this.finish();
                         startActivity(i);
@@ -199,6 +213,7 @@ public class ArtistsActivity extends AppCompatActivity {
                     }
                 } else {
                     falseButtonMP.start();
+                    countDownTimer.cancel();
                     Toasty.error(ArtistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
@@ -340,6 +355,54 @@ public class ArtistsActivity extends AppCompatActivity {
         nScoreView.setText("" + nScore);
     }
 
+
+
+    private void start(){
+
+        nTime.setText("15");
+
+        countDownTimer = new CountDownTimer(15 * 1000,1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                nTime.setText("" + millisUntilFinished / 1000);
+
+            }
+
+            @Override
+            public void onFinish() {
+
+                Intent i = new Intent(ArtistsActivity.this, Results2Activity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("finalScore", nScore);
+                i.putExtras(bundle);
+
+                ArtistsActivity.this.finish();
+                startActivity(i);
+
+
+            }
+        };
+        countDownTimer.start();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        countDownTimer.cancel();
+
+    }
+
+
+
+    private void cancel() {
+
+        if(countDownTimer != null){
+            countDownTimer.cancel();
+            countDownTimer = null;
+        }
+    }
 
 
 

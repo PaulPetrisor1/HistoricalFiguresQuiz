@@ -2,6 +2,7 @@ package com.cg.historicalfiguresquiz;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,9 +30,11 @@ public class ScientistsActivity extends AppCompatActivity {
     private Button nButtonChoice2;
     private Button nButtonChoice3;
     private Button nButtonChoice4;
+    TextView nTime;
     private int nScore = 0;
     public int nQuestionLenght = nQuestionList.nScientistsQuestions.length;
     Random random;
+    CountDownTimer countDownTimer;
 
     List<QuestionItem> list;
     int turn = 1;
@@ -51,6 +54,7 @@ public class ScientistsActivity extends AppCompatActivity {
         nButtonChoice2 = (Button) findViewById(R.id.scientistsChoice2);
         nButtonChoice3 = (Button) findViewById(R.id.scientistsChoice3);
         nButtonChoice4 = (Button) findViewById(R.id.scientistsChoice4);
+        nTime = (TextView) findViewById(R.id.timer2);
 
         final MediaPlayer correctButtonMP = MediaPlayer.create(this,R.raw.correct_button);
         final MediaPlayer falseButtonMP = MediaPlayer.create(this,R.raw.false_button);
@@ -63,6 +67,7 @@ public class ScientistsActivity extends AppCompatActivity {
 
         Collections.shuffle(list);
         newQuestion(turn);
+        start();
 
 
 
@@ -80,7 +85,9 @@ public class ScientistsActivity extends AppCompatActivity {
                     if (turn<list.size()) {
                         turn++;
                         newQuestion(turn);
+                        countDownTimer.start();
                     } else if (turn == list.size()){
+                        countDownTimer.cancel();
                         Intent i = new Intent(ScientistsActivity.this, ResultsActivity.class);
                         ScientistsActivity.this.finish();
                         startActivity(i);
@@ -88,6 +95,7 @@ public class ScientistsActivity extends AppCompatActivity {
                     }
                 } else {
 
+                    countDownTimer.cancel();
                     falseButtonMP.start();
                     Toasty.error(ScientistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ScientistsActivity.this, Results2Activity.class);
@@ -111,7 +119,6 @@ public class ScientistsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (nButtonChoice2.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
-
                     correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
@@ -121,7 +128,9 @@ public class ScientistsActivity extends AppCompatActivity {
                     if (turn<list.size()) {
                         turn++;
                         newQuestion(turn);
+                        countDownTimer.start();
                     } else if (turn == list.size()){
+                        countDownTimer.cancel();
                         Intent i = new Intent(ScientistsActivity.this, ResultsActivity.class);
                         ScientistsActivity.this.finish();
                         startActivity(i);
@@ -129,6 +138,7 @@ public class ScientistsActivity extends AppCompatActivity {
                     }
                 } else {
                     falseButtonMP.start();
+                    countDownTimer.cancel();
                     Toasty.error(ScientistsActivity.this, "False", Toast.LENGTH_LONG,true).show();
                     Intent i = new Intent(ScientistsActivity.this, Results2Activity.class);
                     Bundle bundle = new Bundle();
@@ -157,7 +167,9 @@ public class ScientistsActivity extends AppCompatActivity {
                     if (turn<list.size()) {
                         turn++;
                         newQuestion(turn);
+                        countDownTimer.start();
                     } else if (turn == list.size()){
+                        countDownTimer.cancel();
                         Intent i = new Intent(ScientistsActivity.this, ResultsActivity.class);
                         ScientistsActivity.this.finish();
                         startActivity(i);
@@ -165,6 +177,7 @@ public class ScientistsActivity extends AppCompatActivity {
                     }
                 } else {
 
+                    countDownTimer.cancel();
                     falseButtonMP.start();
                     Toasty.error(ScientistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ScientistsActivity.this, Results2Activity.class);
@@ -195,13 +208,18 @@ public class ScientistsActivity extends AppCompatActivity {
                     if (turn<list.size()) {
                         turn++;
                         newQuestion(turn);
+                        countDownTimer.start();
                     } else if (turn == list.size()){
+
+                        countDownTimer.cancel();
                         Intent i = new Intent(ScientistsActivity.this, ResultsActivity.class);
                         ScientistsActivity.this.finish();
                         startActivity(i);
 
                     }
                 } else {
+
+                    countDownTimer.cancel();
                     falseButtonMP.start();
                     Toasty.error(ScientistsActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(ScientistsActivity.this, Results2Activity.class);
@@ -347,6 +365,55 @@ public class ScientistsActivity extends AppCompatActivity {
 
 
 
+
+    private void start(){
+
+        nTime.setText("15");
+
+        countDownTimer = new CountDownTimer(15 * 1000,1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                nTime.setText("" + millisUntilFinished / 1000);
+
+            }
+
+            @Override
+            public void onFinish() {
+
+                Intent i = new Intent(ScientistsActivity.this, Results2Activity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("finalScore", nScore);
+                i.putExtras(bundle);
+
+                ScientistsActivity.this.finish();
+                finish();
+                startActivity(i);
+
+
+
+            }
+        };
+        countDownTimer.start();
+    }
+
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        countDownTimer.cancel();
+
+    }
+
+
+    private void cancel() {
+
+        if(countDownTimer != null){
+            countDownTimer.cancel();
+            countDownTimer = null;
+        }
+    }
 
 
 

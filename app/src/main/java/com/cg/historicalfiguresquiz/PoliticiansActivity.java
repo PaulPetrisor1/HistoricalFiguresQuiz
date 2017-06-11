@@ -82,7 +82,7 @@ public class PoliticiansActivity extends AppCompatActivity {
                 if (nButtonChoice1.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
 
                     correctButtonMP.start();
-                    countDownTimer.start();
+
                     nScore = nScore + 1;
                     updateScore(nScore);
                     Toasty.success(PoliticiansActivity.this, "Correct", Toast.LENGTH_SHORT,true).show();
@@ -90,8 +90,10 @@ public class PoliticiansActivity extends AppCompatActivity {
                     if (turn<list.size()) {
                         turn++;
                         newQuestion(turn);
+                        countDownTimer.start();
+
                     } else if (turn == list.size()){
-                        countDownTimer.cancel();
+                       countDownTimer.cancel();
                         Intent i = new Intent(PoliticiansActivity.this, ResultsActivity.class);
                         PoliticiansActivity.this.finish();
                         startActivity(i);
@@ -122,7 +124,7 @@ public class PoliticiansActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (nButtonChoice2.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
-                    countDownTimer.start();
+
                     correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
@@ -132,6 +134,8 @@ public class PoliticiansActivity extends AppCompatActivity {
                     if (turn<list.size()) {
                         turn++;
                         newQuestion(turn);
+                        countDownTimer.start();
+
                     }  else if (turn == list.size()){
                         countDownTimer.cancel();
                         Intent i = new Intent(PoliticiansActivity.this, ResultsActivity.class);
@@ -160,7 +164,7 @@ public class PoliticiansActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (nButtonChoice3.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
-                    countDownTimer.start();
+
                     correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
@@ -170,6 +174,7 @@ public class PoliticiansActivity extends AppCompatActivity {
                     if (turn<list.size()) {
                         turn++;
                         newQuestion(turn);
+                       countDownTimer.start();
                     }  else if (turn == list.size()){
                         countDownTimer.cancel();
                         Intent i = new Intent(PoliticiansActivity.this, ResultsActivity.class);
@@ -179,7 +184,7 @@ public class PoliticiansActivity extends AppCompatActivity {
                     }
                 } else {
 
-                    countDownTimer.cancel();
+                   countDownTimer.cancel();
                     falseButtonMP.start();
                     Toasty.error(PoliticiansActivity.this, "False", Toast.LENGTH_SHORT,true).show();
                     Intent i = new Intent(PoliticiansActivity.this, Results2Activity.class);
@@ -199,7 +204,6 @@ public class PoliticiansActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (nButtonChoice4.getText().toString().equalsIgnoreCase(list.get(turn - 1).getName())) {
-                    countDownTimer.start();
                     correctButtonMP.start();
                     nScore = nScore + 1;
                     updateScore(nScore);
@@ -209,7 +213,10 @@ public class PoliticiansActivity extends AppCompatActivity {
                     if (turn<list.size()) {
                         turn++;
                         newQuestion(turn);
+                        countDownTimer.start();
+
                     }  else if (turn == list.size()){
+                       countDownTimer.cancel();
                         Intent i = new Intent(PoliticiansActivity.this, ResultsActivity.class);
                         PoliticiansActivity.this.finish();
                         startActivity(i);
@@ -371,7 +378,6 @@ public class PoliticiansActivity extends AppCompatActivity {
            @Override
            public void onTick(long millisUntilFinished) {
                nTime.setText("" + millisUntilFinished / 1000);
-
            }
 
            @Override
@@ -387,11 +393,21 @@ public class PoliticiansActivity extends AppCompatActivity {
 
 
            }
+
+
+
        };
       countDownTimer.start();
    }
 
-private void cancel() {
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        countDownTimer.cancel();
+
+    }
+
+    private void cancel() {
 
     if(countDownTimer != null){
         countDownTimer.cancel();

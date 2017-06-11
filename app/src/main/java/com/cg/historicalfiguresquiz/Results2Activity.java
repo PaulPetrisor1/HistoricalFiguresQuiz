@@ -37,8 +37,12 @@ public class Results2Activity extends AppCompatActivity {
         nExitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Results2Activity.this, CategoriesActivity.class));
+
+                Intent i = new Intent(Results2Activity.this, CategoriesActivity.class);
                 Results2Activity.this.finish();
+                startActivity(i);
+
+
             }
         });
 
