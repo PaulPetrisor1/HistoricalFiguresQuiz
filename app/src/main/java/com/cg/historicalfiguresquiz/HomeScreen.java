@@ -14,6 +14,8 @@ import android.widget.ImageView;
 
 public class HomeScreen extends AppCompatActivity {
 
+    private MediaPlayer ring = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,16 +24,30 @@ public class HomeScreen extends AppCompatActivity {
           final MediaPlayer soundEffect1 = MediaPlayer.create(this,R.raw.homescreen_button);
 
           Button homeButton = (Button) findViewById(R.id.button);
+          MediaPlayer ring= MediaPlayer.create(HomeScreen.this,R.raw.nocturne);
+          ring.setLooping(true);
+          ring.start();
+
+
 
           homeButton.setOnClickListener(new View.OnClickListener() {
+
               @Override
               public void onClick(View v) {
                   soundEffect1.start();
                   Intent intent = new Intent(getApplicationContext(),CategoriesActivity.class);
                   startActivity(intent);
 
+
               }
           });
+
+    }
+
+
+    public void OnDestroy(){
+        super.onDestroy();
+        onBackPressed();
 
 
     }
